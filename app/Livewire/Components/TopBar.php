@@ -8,6 +8,6 @@ class TopBar extends Component
 {
     public function render()
     {
-        return view('livewire.components.top-bar');
+        return view('livewire.components.topbar');
     }
 }
