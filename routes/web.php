@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+Route::get('/', [HomeController::class, 'home']);
+
+Route::get('language/{lang}', function ($lang = null) {
+    app()->setLocale($lang);
+    session()->put('locale', $lang);
+
+    return redirect()->back();
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
