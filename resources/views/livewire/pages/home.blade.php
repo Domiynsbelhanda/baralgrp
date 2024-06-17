@@ -86,20 +86,29 @@
         </div><!-- /.swiper-container thm-swiper__slider -->
     </section><!-- /.main-slider -->
 
+    @php
+        $isMobile = "<script>document.body.getAttribute('data-is-mobile')</script>";
+    @endphp
 
     <section class="about-one" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 wow fadeInLeft" data-wow-duration="1500ms">
-                    <div class="about-one__images">
-                        <img src="{{asset('assets/images/resources/about-1-1.png')}}" alt="">
-                        <img src="{{asset('assets/images/resources/about-1-2.png')}}" alt="">
-                        <div class="about-one__images-content text-center">
-{{--                            <h3>48</h3>--}}
-{{--                            <p>{{__('finished-project')}}</p>--}}
-                        </div><!-- /.about-one__images-content -->
-                    </div><!-- /.about-one__images -->
-                </div><!-- /.col-lg-6 -->
+
+                @if ($isMobile)
+
+                @else
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-duration="1500ms">
+                        <div class="about-one__images">
+                            <img src="{{asset('assets/images/resources/about-1-1.png')}}" alt="">
+                            <img src="{{asset('assets/images/resources/about-1-2.png')}}" alt="">
+                            <div class="about-one__images-content text-center">
+                                {{--                            <h3>48</h3>--}}
+                                {{--                            <p>{{__('finished-project')}}</p>--}}
+                            </div><!-- /.about-one__images-content -->
+                        </div><!-- /.about-one__images -->
+                    </div><!-- /.col-lg-6 -->
+                @endif
+
                 <div class="col-lg-6">
                     <div class="about-one__content">
                         <div class="block-title text-left">
@@ -386,6 +395,12 @@
     <!-- /.contact-one -->
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let isMobile = /Mobi|Android/i.test(navigator.userAgent);
+            document.body.setAttribute('data-is-mobile', isMobile);
+        });
+
+
         document.addEventListener('DOMContentLoaded', function() {
             var currentImageIndex = 0;
             var images = document.querySelectorAll('.gallery img');
