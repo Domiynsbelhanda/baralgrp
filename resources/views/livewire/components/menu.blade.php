@@ -5,7 +5,7 @@
                 <li class="scrollToLink"><a href="/">{{__('home')}}</a></li>
                 <li class="scrollToLink"><a href="#about">{{__('about')}}</a></li>
                 <li class="scrollToLink"><a href="#services">{{__('services')}}</a></li>
-{{--                <li class="scrollToLink"><a href="#team">{{__('team')}}</a></li>--}}
+                <li class="scrollToLink"><a href="#projects">{{__('projects')}}</a></li>
                 <li class="scrollToLink"><a href="#contact">{{__('contact')}}</a></li>
                 <li class="scrollToLink dropdown">
                     <a href="#blog">{{__('language')}}</a>

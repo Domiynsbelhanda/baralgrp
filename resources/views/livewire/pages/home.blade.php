@@ -5,6 +5,33 @@
 @endsection
 
 @section('content')
+    <style>
+        .gallery img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        .modal-dialog-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .modal-body img {
+            max-width: 100%;
+            max-height: 80vh;
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+    </style>
+
     <section class="main-slider">
         <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
             "effect": "fade",
@@ -167,17 +194,82 @@
         </div><!-- /.container -->
     </section><!-- /.service-one -->
 
+    <section class="team-one" id="projects">
+        <div class="container">
+            <div class="block-title text-center">
+                {{--                <p><span></span>{{__('team-member')}}</p>--}}
+                <h3>
+                    {{__('projects')}}
+                    {{--                    <br> <span>{{__('team-qualified')}}</span>--}}
+                </h3>
+            </div>
+            <!-- /.block-title -->
+        </div><!-- /.container -->
 
-{{--    <section class="team-one" id="team">--}}
+        <div class="container mt-4">
+            <div class="row gallery">
+                <div class="col-md-4">
+                    <img src="{{asset('assets/images/projects/project-1-1.png')}}" alt="Image 1" class="img-thumbnail">
+                </div>
+                <div class="col-md-4">
+                    <img src="{{asset('assets/images/projects/project-1-2.png')}}" alt="Image 2" class="img-thumbnail">
+                </div>
+                <div class="col-md-4">
+                    <img src="{{asset('assets/images/projects/project-1-3.png')}}" alt="Image 3" class="img-thumbnail">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="{{asset('assets/images/projects/project-1-4.png')}}" alt="Image 1" class="img-thumbnail">
+                </div>
+                <div class="col-md-4">
+                    <img src="{{asset('assets/images/projects/project-1-5.png')}}" alt="Image 2" class="img-thumbnail">
+                </div>
+                <div class="col-md-4">
+                    <img src="{{asset('assets/images/projects/project-1-6.png')}}" alt="Image 3" class="img-thumbnail">
+                </div>
+                <!-- Ajoutez plus d'images ici -->
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="modalImage" src="" alt="Image en grand" class="img-fluid">
+                        <a class="carousel-control-prev" href="#" role="button" id="prevImage">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#" role="button" id="nextImage">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- /.team-one -->
+
+
+{{--    <section class="team-one" id="projects">--}}
 {{--        <div class="container">--}}
 {{--            <div class="block-title text-center">--}}
 {{--                <p><span></span>{{__('team-member')}}</p>--}}
 {{--                <h3>--}}
-{{--                    {{__('team-description')}}<br> <span>{{__('team-qualified')}}</span>--}}
+{{--                    {{__('projects')}}--}}
+{{--                    <br> <span>{{__('team-qualified')}}</span>--}}
 {{--                </h3>--}}
 {{--            </div>--}}
 {{--            <!-- /.block-title -->--}}
 {{--            <div class="team-one__4-col">--}}
+
 {{--                <div class="team-one__single">--}}
 {{--                    <div class="team-one__image">--}}
 {{--                        <div class="team-one__social">--}}
@@ -186,58 +278,14 @@
 {{--                            <a href="#" class="fas fa-envelope"></a>--}}
 {{--                            <a href="#" class="fab fa-linkedin-in"></a>--}}
 {{--                        </div><!-- /.team-one__social -->--}}
-{{--                        <img src="assets/images/team/team-1-1.jpg" alt="">--}}
+{{--                        <img src="{{asset('assets/images/team/team-1-1.jpg')}}" alt="">--}}
 {{--                    </div><!-- /.team-one__image -->--}}
 {{--                    <div class="team-one__content">--}}
 {{--                        <h3>Robert Vasquez</h3>--}}
 {{--                        <p>UX Designer</p>--}}
 {{--                    </div><!-- /.team-one__content -->--}}
 {{--                </div><!-- /.team-one__single -->--}}
-{{--                <div class="team-one__single">--}}
-{{--                    <div class="team-one__image">--}}
-{{--                        <div class="team-one__social">--}}
-{{--                            <a href="#" class="fab fa-facebook-f"></a>--}}
-{{--                            <a href="#" class="fab fa-twitter"></a>--}}
-{{--                            <a href="#" class="fas fa-envelope"></a>--}}
-{{--                            <a href="#" class="fab fa-linkedin-in"></a>--}}
-{{--                        </div><!-- /.team-one__social -->--}}
-{{--                        <img src="assets/images/team/team-1-2.jpg" alt="">--}}
-{{--                    </div><!-- /.team-one__image -->--}}
-{{--                    <div class="team-one__content">--}}
-{{--                        <h3>Tyler Jackson</h3>--}}
-{{--                        <p>Front End Developer</p>--}}
-{{--                    </div><!-- /.team-one__content -->--}}
-{{--                </div><!-- /.team-one__single -->--}}
-{{--                <div class="team-one__single">--}}
-{{--                    <div class="team-one__image">--}}
-{{--                        <div class="team-one__social">--}}
-{{--                            <a href="#" class="fab fa-facebook-f"></a>--}}
-{{--                            <a href="#" class="fab fa-twitter"></a>--}}
-{{--                            <a href="#" class="fas fa-envelope"></a>--}}
-{{--                            <a href="#" class="fab fa-linkedin-in"></a>--}}
-{{--                        </div><!-- /.team-one__social -->--}}
-{{--                        <img src="assets/images/team/team-1-3.jpg" alt="">--}}
-{{--                    </div><!-- /.team-one__image -->--}}
-{{--                    <div class="team-one__content">--}}
-{{--                        <h3>Leo Dawson</h3>--}}
-{{--                        <p>UX Engineer</p>--}}
-{{--                    </div><!-- /.team-one__content -->--}}
-{{--                </div><!-- /.team-one__single -->--}}
-{{--                <div class="team-one__single">--}}
-{{--                    <div class="team-one__image">--}}
-{{--                        <div class="team-one__social">--}}
-{{--                            <a href="#" class="fab fa-facebook-f"></a>--}}
-{{--                            <a href="#" class="fab fa-twitter"></a>--}}
-{{--                            <a href="#" class="fas fa-envelope"></a>--}}
-{{--                            <a href="#" class="fab fa-linkedin-in"></a>--}}
-{{--                        </div><!-- /.team-one__social -->--}}
-{{--                        <img src="assets/images/team/team-1-4.jpg" alt="">--}}
-{{--                    </div><!-- /.team-one__image -->--}}
-{{--                    <div class="team-one__content">--}}
-{{--                        <h3>Jerry Hoffman</h3>--}}
-{{--                        <p>Backend Develoepr</p>--}}
-{{--                    </div><!-- /.team-one__content -->--}}
-{{--                </div><!-- /.team-one__single -->--}}
+
 {{--            </div><!-- /.team-one__4-col -->--}}
 {{--        </div><!-- /.container -->--}}
 {{--    </section><!-- /.team-one -->--}}
@@ -336,4 +384,45 @@
         <!-- /.container -->
     </section>
     <!-- /.contact-one -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var currentImageIndex = 0;
+            var images = document.querySelectorAll('.gallery img');
+            var modalImage = document.getElementById('modalImage');
+            var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            var prevImage = document.getElementById('prevImage');
+            var nextImage = document.getElementById('nextImage');
+
+            function showImage(index) {
+                var imgSrc = images[index].getAttribute('src');
+                modalImage.setAttribute('src', imgSrc);
+                imageModal.show();
+                currentImageIndex = index;
+            }
+
+            images.forEach(function(image, index) {
+                image.addEventListener('click', function() {
+                    showImage(index);
+                });
+            });
+
+            prevImage.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : images.length - 1;
+                showImage(currentImageIndex);
+            });
+
+            nextImage.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentImageIndex = (currentImageIndex < images.length - 1) ? currentImageIndex + 1 : 0;
+                showImage(currentImageIndex);
+            });
+
+            document.querySelector('.modal .close').addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex < images.length - 1) ? currentImageIndex + 1 : 0;
+                showImage(currentImageIndex);
+            });
+        });
+    </script>
 @endsection
