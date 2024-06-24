@@ -94,20 +94,12 @@
         <div class="container">
             <div class="row">
 
-                @if ($isMobile)
-
-                @else
-                    <div class="col-lg-6 wow fadeInLeft" data-wow-duration="1500ms">
-                        <div class="about-one__images">
-                            <img src="{{asset('assets/images/resources/about-1-1.png')}}" alt="">
-                            <img src="{{asset('assets/images/resources/about-1-2.png')}}" alt="">
-                            <div class="about-one__images-content text-center">
-                                {{--                            <h3>48</h3>--}}
-                                {{--                            <p>{{__('finished-project')}}</p>--}}
-                            </div><!-- /.about-one__images-content -->
-                        </div><!-- /.about-one__images -->
-                    </div><!-- /.col-lg-6 -->
-                @endif
+                <div class="col-lg-6 wow fadeInLeft" data-wow-duration="1500ms">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/evq4-gMWUrs"
+                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+                clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div><!-- /.col-lg-6 -->
 
                 <div class="col-lg-6">
                     <div class="about-one__content">
